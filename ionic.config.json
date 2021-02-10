@@ -1,0 +1,7 @@
+{
+  "name": "spotifyUi",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
