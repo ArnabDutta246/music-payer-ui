@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
       Tab 1
@@ -14,4 +14,25 @@
   </ion-header>
 
   <app-explore-container name="Tab 1 page"></app-explore-container>
+</ion-content> -->
+
+
+<ion-content>
+  <ion-row class="ion-no-padding" *ngFor="let entry of data;let isFirst = first;">
+  <ion-col size="9">
+    <h4 class="section-header">{{entry.title}}</h4>
+  </ion-col>
+  <ion-col size="3" class="ion-text-center">
+    <ion-button *ngIf="isFirst" fill="clear" color="light">
+      <ion-icon name="settings-outline" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-col>
+
+  <ion-slides [options]="options">
+    <ion-slide *ngFor="let album of entry.albums" tappable (click)="openAlbum(album)">
+     <img [src]="'/assets/images/albums/'+correctImageName(album.image)+'.jpg'">
+     <span class="title">{{album.title}}</span>
+    </ion-slide>
+  </ion-slides>
+  </ion-row>
 </ion-content>
